@@ -1,6 +1,6 @@
 package oracle;
 
-public class Clothing {
+public class Clothing implements Comparable<Clothing> {
 	public final static double MIN_PRICE = 10.0;
 	public final static double MIN_TAX = 0.2;
 	private String description;
@@ -37,8 +37,14 @@ public class Clothing {
 	public void setSize(String size) {
 		this.size = size;
 	}
-@Override
+
+	@Override
 	public String toString() {
 		return getDescription() + ", " + getSize() + ", " + getPrice();
+	}
+
+	@Override
+	public int compareTo(Clothing c) {
+		return this.description.compareTo(c.description);
 	}
 }
